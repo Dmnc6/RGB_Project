@@ -4,12 +4,12 @@ from tinydb import TinyDB, Query, where
 app = Flask(__name__)
 
 
+# @app.route('/')
+# def hello_world():
+#    return 'Hello World!'
+
+
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-
-@app.route('/rgb')
 def serve_html():
     db = TinyDB('db.json')
     colours = db.all()[0]
@@ -39,5 +39,5 @@ def before_req():
         db.insert({'red': 128, 'green': 128, 'blue': 128})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port="80")
 

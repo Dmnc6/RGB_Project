@@ -71,7 +71,6 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script type="text/javascript" src="/static/formatDate.js"></script>
     <script type="text/javascript" src="/static/jquery.mb.slider.js"></script>
-
 </head>
 <body>
     <div class="wrapper">
@@ -81,21 +80,43 @@
         <div id="ex2" style="display:inline-block;position:relative;">
             <br>
             <br>
-            <div id="R" class="mb_slider" data-property="{rangeColor:'red',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}" style="display:inline-block;"></div>
-            <span id="R_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#R').mbsetVal($(this).val());"></span><br>
-            <div id="G" class="mb_slider" data-property="{rangeColor:'lime',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}"  style="display:inline-block;"></div>
-            <span id="G_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#G').mbsetVal($(this).val());"></span><br>
-            <div id="B" class="mb_slider" data-property="{rangeColor:'blue',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}"  style="display:inline-block;"></div>
-            <span id="B_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#B').mbsetVal($(this).val());"></span>
+                <div id="R" class="mb_slider" data-property="{rangeColor:'red',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}" style="display:inline-block;"></div>
+                <span id="R_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#R').mbsetVal($(this).val());"></span><br>
+                <div id="G" class="mb_slider" data-property="{rangeColor:'lime',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}"  style="display:inline-block;"></div>
+                <span id="G_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#G').mbsetVal($(this).val());"></span><br>
+                <div id="B" class="mb_slider" data-property="{rangeColor:'blue',negativeColor:'#ffcc00', startAt:128, grid:1, maxVal:255}"  style="display:inline-block;"></div>
+                <span id="B_val" class="setVal"><input class="val" value="128" style="..." onkeyup="$('#B').mbsetVal($(this).val());"></span>
             <br>
-            <div class="buttons">
-            <h2>Buttons</h2>
-            <div class="btn-group">
-                <button id="R-btn" type="button" class="btn btn-colours">Red</button>
-                <button id="G-btn" type="button" class="btn btn-colours">Green</button>
-                <button id="B-btn" type="button" class="btn btn-colours">Blue</button>
+            <div class="clr-btn">
+                <h2>Buttons</h2>
+                <div class="btn-group">
+                    <button id="R-btn" type="button" class="btn btn-colours">Red</button>
+                    <button id="G-btn" type="button" class="btn btn-colours">Green</button>
+                    <button id="B-btn" type="button" class="btn btn-colours">Blue</button>
+                    <button id="W-btn" type="button" class="btn btn-colours">White</button>
+                    <button id="Bl-btn" type="button" class="btn btn-colours">Black</button>
+                    <br>
+                    <button id="O-btn" type="button" class="btn btn-colours">Orange</button>
+                    <button id="P-btn" type="button" class="btn btn-colours">Purple</button>
+                    <button id="Pi-btn" type="button" class="btn btn-colours">Pink</button>
+                    <button id="Y-btn" type="button" class="btn btn-colours">Yellow</button>
+                    <button id="Br-btn" type="button" class="btn btn-colours">Brown</button>
+                    <button id="Gl-btn" type="button" class="btn btn-colours">Gold</button>
+                    <!-- <button id="Pi-btn" type="button" class="btn btn-colours"></button>
+                    <button id="Pi-btn" type="button" class="btn btn-colours"></button>
+                    <button id="Pi-btn" type="button" class="btn btn-colours"></button>
+                    -->
+                </div>
             </div>
-        </div>
+            <div class="eft-btn">
+                <h2>Effects</h2>
+                <h3>DO NOT USE THESE, YOU WILL BREAK THE PAGE</h3>
+                <div class="btn-group">
+                    <button id="FADE-btn" type="button" class="btn btn-effects">Fade</button>
+                    <button id="BREATH-btn" type="button" class="btn btn-effects">Breathing</button>
+
+                </div>
+            </div>
         <br>
         <div style="clear:both;padding:20px;">
             <span id="colorValueHex" style="color:black;padding:10px; font:18px/16px Arial"></span><br><br>
@@ -130,8 +151,6 @@
             changeColor($("#R").mbgetVal(),$("#G").mbgetVal(),$("#B").mbgetVal());
             $("#"+o.id+"_val").find(".val").val($(o).mbgetVal());},
          maxVal:255,
-        //onSliderLoad:function(){changeColor($("#R").mbgetVal(),$("#G").mbgetVal(),$("#B").mbgetVal());},
-        //onSlider:function(){changeColor($("#R").mbgetVal(),$("#G").mbgetVal(),$("#B").mbgetVal());}
     });
     //COLOR_PICKER EXAMPLE
 
@@ -174,18 +193,87 @@
     }
 
     $("#R-btn").click(function() {
-        setValues(255, 0, 0)
+        setValues(255, 0, 0);
         refreshColours()
     });
 
     $("#G-btn").click(function() {
-        setValues(0, 255, 0)
+        setValues(0, 255, 0);
         refreshColours()
     });
 
     $("#B-btn").click(function() {
-        setValues(0, 0, 255)
+        setValues(0, 0, 255);
         refreshColours()
+    });
+
+    $("#W-btn").click(function () {
+        setValues(255, 255, 255);
+        refreshColours()
+    });
+
+    $("#O-btn").click(function () {
+        setValues(255, 165, 0);
+        refreshColours()
+    });
+
+    $("#Bl-btn").click(function () {
+        setValues(0, 0, 0);
+        refreshColours()
+    });
+
+    $("#Pi-btn").click(function () {
+        setValues(255, 105, 180);
+        refreshColours()
+    });
+
+    $("#Y-btn").click(function () {
+        setValues(255, 255, 0);
+        refreshColours()
+    });
+
+    $("#Br-btn").click(function () {
+        setValues(165, 42, 42);
+        refreshColours()
+    });
+
+    $("#Gl-btn").click(function () {
+        setValues(255, 215, 0);
+        refreshColours()
+    });
+
+    $("#P-btn").click(function () {
+        setValues(128, 0, 128);
+        refreshColours()
+    });
+
+    $("#FADE-btn").click(function () {
+        while (true) {
+            if($('#R').mbgetVal == 255 && $('#G').mbgetVal == 0 && $('#B').mbgetVal < 255) {
+                setValues(255, 0, ($('#B').mbgetVal + 1));
+                refreshColours()
+            }
+            else if($('#R').mbgetVal > 0 && $('#G').mbgetVal == 255 && $('#B').mbgetVal == 0) {
+                setValues(($('#R').mbgetVal - 1), 255, 0);
+                refreshColours()
+            }
+            else if($('#R').mbgetVal == 0 && $('#G').mbgetVal == 255 && $('#B').mbgetVal < 255) {
+                setValues(0, 255, ($('#B').mbgetVal + 1));
+                refreshColours()
+            }
+            else if($('#R').mbgetVal == 0 && $('#G').mbgetVal > 0 && $('#B').mbgetVal == 255) {
+                setValues(0, ($('#G').mbgetVal - 1), 255);
+                refreshColours()
+            }
+            else if($('#R').mbgetVal < 255 && $('#G').mbgetVal == 0 && $('#B').mbgetVal == 255) {
+                setValues(($('#R').mbgetVal + 1), 0, 255);
+                refreshColours()
+            }
+            else if($('#R').mbgetVal == 255 && $('#G').mbgetVal == 0 && $('#B').mbgetVal > 0) {
+                setValues(255, 0, ($('#B').mbgetVal - 1));
+                refreshColours()
+            }
+        }
     });
 
     function postToServer() {
